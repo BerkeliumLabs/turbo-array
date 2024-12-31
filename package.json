@@ -1,0 +1,26 @@
+{
+  "name": "@berkelium/turbo-array",
+  "version": "0.0.1",
+  "description": "WASM Library to make JS array methods run faster",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests",
+    "asbuild:debug": "asc assembly/index.ts --target debug",
+    "asbuild:release": "asc assembly/index.ts --target release",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
+    "start": "npx serve ."
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "assemblyscript": "^0.27.31",
+    "serve": "14.2.4"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./build/release.js",
+      "types": "./build/release.d.ts"
+    }
+  }
+}
